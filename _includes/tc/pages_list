@@ -1,0 +1,17 @@
+{% if site.tc.pages_list.provider == "custom" %}
+  {% include custom/pages_list %}
+{% else %}
+  {% for node in pages_list %}
+    {% if node.title != null %}
+      {% if group == null or group == node.group %}
+      	{% if page.url == node.url %}
+      	<!--<p><li class="active"><a href="{{ site.url }}{{node.url}}" class="active">{{node.title}}</a></li></p>
+      	-->{% else %}
+      	<li class="active"><a  href="{{ site.url }}{{node.url}}">{{node.title}}</a></li>
+      	{% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% assign pages_list = nil %}
+{% assign group = nil %}

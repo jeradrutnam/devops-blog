@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="posts-title"> 
+<h1>Recent Posts</h1>
+<hr />
+{% for post in site.posts limit:15 %}    
+<h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+<p itemprop="text">
+    {% if post.description %}
+		    {{ post.description }} _ _ _
+             <strong><time datetime="{{ post.date | datetime | date_to_xmlschema }}">{{ post.date | date: "<span class='month'>%b</span> <span class='day'>-%d</span> <span class='year'>-%Y</span>"}}</time></strong>
+               		      	    {% else %}
+                   			 {{ post.content | strip_html | strip_newlines | truncate: 120}} _ _  _
+      <strong><time datetime="{{ post.date | datetime | date_to_xmlschema }}">{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time></strong>
+               		   	         {% endif %}</p>
+    			     {% endfor %}
+</div>
+
+<div>
+		
+		 <h3>Latest Posts</h3>
+               <hr />
+                {% for post in site.posts limit: 10 %}
+            <p  class="aside" ><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title | strip_html | strip_newlines | truncate: 120}}</a></p>
+                {% endfor %}
+</div>
+<div>            
+            <h3>Categories </h3>
+            <hr />
+            {% assign categories_list = site.categories %}
+            {% for category in  site.categories %} 
+              <a class="btn btn-default btn-hover" href="{{ site.url}}/categories#{{ category[0] }}-ref">{{ category[0] }}</a>
+            {% endfor %}
+
+</div>

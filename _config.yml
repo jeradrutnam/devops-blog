@@ -1,0 +1,57 @@
+title:            DevOps
+tagline:          wso2 DevOps
+description:      DevOps is the blending of tasks performed by a company's application development and systems operations teams.
+
+
+url:              http://localhost:4000
+port: 		        4000
+
+# # Owner/author information
+# owner:
+#   name:           Errors404
+#   description:    This blogger for things are gone through so far.
+#   avatar:         photo.jpg
+#   bio:            "Just another Geek for looking more exposure."
+#   email:          rasanjaya@wso2.com
+#   twitter:        "rassaah"
+#   facebook:       "rasaposha"
+#   github:         "rasahack"
+#   linkedin:       "rasanjaya-subasinghe"
+#   google_plus:    "https://plus.google.com/110317166479793740166"
+#
+# google_analytics: UA-42453553-1
+# google_verify:    yDg6sIcKE2GppelHs7vHH1cWObC7zFiTml2ygQNS8MU
+# bing_verify:      1A8FA21DACCC9879CA4AEF085BA7B3A8
+
+#pages/posts to include in top navigation
+links:
+  - title: Home
+    url: /index
+  - title: Blog
+    url: /posts
+  - title: Projects
+    url: /projects
+  - title: Team
+    url: /team
+
+timezone:    Asia/Colombo
+future:      true
+#pygments:    true
+highlighter: true
+markdown:    kramdown
+
+permalink:   /posts/:categories/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay : false
+
+coderay:
+  coderay_line_numbers:
+  coderay_line_numbers_start: 1
+  coderay_tab_width: 4
+  coderay_bold_every: 10
+  coderay_css: class

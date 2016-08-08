@@ -1,0 +1,26 @@
+<div class="container">
+      {% if site.related_posts.size %} 
+              <h4>Check this </h4><a class="pull-right"  href="{{ site.url }}/posts">Go to Sack</a>
+              <ul>
+                {% for post in site.related_posts limit:10 %}
+                    {% assign match = false %}
+                          {% for category in post.categories %}
+                              {% if page.categories contains category %}
+                                    {% assign match = true %}
+                              {% endif %}
+                          {% endfor %}
+                    {% if match %}
+                  <li><a class="aside" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+                          {% endif %}
+                {% endfor %}
+              </ul>
+      {% endif %}
+               <hr />
+              
+
+                 {% for link in site.links %}
+                     <a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a> | 
+                 {% endfor %}
+            <!-- <h5 class='copyright_note'>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. All rights reserved.</h5> -->
+            <a class="pull-right" href="{{post.url}}"> Back to top</a> 
+</div>

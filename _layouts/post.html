@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="post">
+    <div class="headline-wrap">
+      <div class="" {% if post.image.thumb %} {{ post.image.thumb }} {% endif %}>
+          <h2 class="">{{ post.title }}</h2>
+      </div>
+       	  <h1>{{ page.title }}</h1>
+    <hr/>
+    </div>
+
+  <div class="article-wrap" itemprop="text">
+    {{ content }}
+    <hr/>
+
+    <p class="byline">
+        <strong>{{ page.title }}</strong> was published on {{ page.date | date: '%B %d, %Y' }}
+
+        <a href="{{ site.url }}/about" title="About {{ site.owner.name }}">{{ site.owner.name }}</a>.
+
+        <!--{% include disqus.html %}-->
+
+    </p>
+</div>
+</div>
+
+
+<div class="related">
+    <h3>Related Posts</h3>
+    <ul class="related-posts">
+        {% for post in site.related_posts limit:5 %}
+        <li>
+            <h4>
+          <a href="{{ post.url }}"> {{ post.title }} _ _ _
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h4>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
